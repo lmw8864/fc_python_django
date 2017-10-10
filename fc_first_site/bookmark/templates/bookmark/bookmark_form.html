@@ -1,0 +1,12 @@
+{% extends 'bookmark_base.html' %}
+
+{% block title %}Create{% endblock %}
+
+{% block content %}
+<h1>Bookmark Create/Update</h1>
+<form action="." method="post">  <!-- "현재 페이지에 다시 쏴줘." -->
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- form 내 태그들을 p태그로 묶어줍니다. (관례적) -->
+    <input type="submit" value="OK">
+</form>
+{% endblock%}
