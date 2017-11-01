@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', IndexPage.as_view(), name='index'),
     url(r'^bookmark/', include("bookmark.urls", namespace='bookmark')),
+    url(r'^photo/', include('photo.urls', namespace='photo')),
 ]
