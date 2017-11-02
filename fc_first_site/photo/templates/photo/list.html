@@ -1,0 +1,9 @@
+{% extends 'photo_base.html' %}
+
+{% block title %} - Photo List{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        {{ post.text }}
+    {% endfor %}
+{% endblock %}
