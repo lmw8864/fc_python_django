@@ -4,6 +4,9 @@
 
 {% block content %}
     {% for post in posts %}
-        {{ post.text }}
+        <p>
+            <img src="{{ post.photo.url }}" style="max-width:300px;"><br/>
+            {{ post.text }}
+        </p>
     {% endfor %}
 {% endblock %}
