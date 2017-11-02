@@ -8,6 +8,8 @@ class Photo(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d', blank=False, default='NoImage.png')
+
     class Meta:
         ordering = ('-updated',)
 
