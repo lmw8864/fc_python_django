@@ -4,9 +4,14 @@
 
 {% block content %}
     {% for post in posts %}
-        <p>
-            <img src="{{ post.photo.url }}" style="max-width:300px;"><br/>
-            {{ post.text }}
-        </p>
+        <ul>
+            <li>작성자: {{ post.author.username }}</li>
+            <li>작성 일시: {{ post.created }} (※ 수정: {{ post.updated }})</li>
+            <li>
+                내용:<br/>
+                <img src="{{ post.photo.url }}" style="max-width:300px;"><br/>
+                {{ post.text }}
+            </li>
+        </ul>
     {% endfor %}
 {% endblock %}
