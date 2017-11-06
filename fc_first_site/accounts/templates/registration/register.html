@@ -1,0 +1,12 @@
+{% extends 'photo_base.html' %}
+
+{% block title %} - Register{% endblock %}
+
+{% block content %}
+<div class="alert alert-info" role="alert">Please enter your account information.</div>
+<form action="." method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="Register" class="btn btn-default">
+</form>
+{% endblock %}
