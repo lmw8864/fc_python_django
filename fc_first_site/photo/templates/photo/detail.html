@@ -1,0 +1,16 @@
+{% extends 'photo_base.html' %}
+
+{% block title %}
+    {{ object.text|truncatechars:10 }}  {% comment %} truncatechars: 문자가 지정된 글자 수 이상이면 ... 으로 줄여줌. {% endcomment %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 panel panel-default">
+        <img src="{{ object.photo.url }}" class="img-rounded img-responsive"><br/>
+        {{ object.text }}
+    </div>
+    <div class="col-md-4"></div>
+</div>
+{% endblock %}
