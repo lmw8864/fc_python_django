@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^single/(?P<pk>\d+)/$', DetailView.as_view(model=Photo, template_name='photo/detail.html'), name='post_detail'),
     url(r'^upload/$', views.UploadView.as_view(), name='post_create'),
     url(r'^delete/(?P<pk>\d+)/$', views.PhotoDeleteView.as_view(), name='post_delete'),
+    url(r'^update/(?P<pk>\d+)/$', views.PhotoUpdateView.as_view(), name='post_update'),
 ]

@@ -10,7 +10,7 @@
     <div class="col-md-4 panel panel-default">
         <img src="{{ object.photo.url }}" class="img-rounded img-responsive"><br/>
         <p>{{ object.text }}</p>
-        <p><a href="{% url 'photo:post_delete' object.id %}" class="btn btn-default">Delete Post</a></p>
+        <p><a href="{% url 'photo:post_update' object.id %}" class="btn btn-default">Update Post</a> <a href="{% url 'photo:post_delete' object.id %}" class="btn btn-default">Delete Post</a></p>
     </div>
     <div class="col-md-4"></div>
 </div>
