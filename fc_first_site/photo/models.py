@@ -32,7 +32,8 @@ class Photo(models.Model):
                 pass
 
         if not is_duplicated:
-            image_obj = Image.open(self.photo)
+            # image_obj = Image.open(self.photo)
+            image_obj = Image.open(self.photo).convert("L")  # 열어서 흑백 모드로 변환 # http://pillow.readthedocs.io/en/latest/reference/Image.html#PIL.Image.Image.convert
             new_image_io = BytesIO()
             image_obj.save(new_image_io, format='JPEG')  # JPEG 포맷으로 저장
 
