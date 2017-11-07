@@ -41,6 +41,7 @@
               <li><a href="/" class="active">Home</a></li>
               {% if user.is_active %}
                 <li><a href="#">Welcome, {{ user.get_username }}</a></li>
+                <li><a href="{% url 'photo:post_create' %}">Upload</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
               {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
