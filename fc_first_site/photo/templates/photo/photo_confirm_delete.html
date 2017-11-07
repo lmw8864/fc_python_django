@@ -1,0 +1,17 @@
+{% extends 'photo_base.html' %}
+
+{% block title %} - Confirm Delete{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 panel panel-default">
+        <form action="." method="post">
+            {% csrf_token %}
+            <p>Do you want to delete this post?</p>
+            <input type="submit" value="Delete" class="btn btn-default">
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+{% endblock %}

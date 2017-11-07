@@ -4,6 +4,10 @@ from PIL import Image
 from io import BytesIO
 from django.core.files.base import ContentFile
 
+# https://docs.djangoproject.com/ko/1.11/topics/signals/
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
+
 
 class Photo(models.Model):
     author = models.ForeignKey(User, related_name='photo_posts')
@@ -56,3 +60,12 @@ class Photo(models.Model):
             pass
 
         super(Photo, self).save(*args, **kwargs)
+
+
+# ★★★ 잘못해서 DB의 모든 파일이 다 날아가는 경우가 발생할 수 있으니, 반드시 아래처럼 처리해줘야 합니다! ★★★
+
+@receiver(post_delete, sender=Photo)  # Photo 모델에서 post_delete 시그널이 발생했을 때만 동작
+def post_delete(sender, instance, **kwargs):
+    storage, path = instance.photo.storage, instance.photo.path
+    if (path != '.') and (path != '/') and (path != 'photos/') and (path != 'photos/.'):
+        storage.delete(path)
