@@ -1,0 +1,13 @@
+{% extends 'photo_base.html' %}
+
+{% block content %}
+
+<h1>Tag List</h1>
+
+{% load tagging_tags %}
+{% tag_cloud_for_model photo.Photo as tags with steps=12 min_count=1 distribution=log %}
+{% for tag in tags %}
+    <a href="{% url 'photo:tag_post_list' tag.name %}" style="font-size:{{ tag.font_size }}em;">{{ tag.name }}</a>
+{% endfor %}
+
+{% endblock %}

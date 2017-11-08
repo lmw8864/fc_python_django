@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bookmark',
     'photo',
     'accounts',
+    'tagging.apps.TaggingConfig',
 ]
 
 MIDDLEWARE = [

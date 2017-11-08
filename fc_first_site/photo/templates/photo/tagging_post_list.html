@@ -1,0 +1,22 @@
+{% extends 'photo_base.html' %}
+
+{% block content %}
+
+<h1>Photos for tag - {{ tag.name }}</h1>
+
+{% for post in object_list %}
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 panel panel-default">
+            <img src="{{ post.photo.url }}" class="img-rounded img-responsive"><br/>
+            <button type="button" class="btn btn-xs btn-info">{{ post.author.username }}</button>
+            {{ post.text|linebreaksbr }}<br/>
+            <p class="text-right">
+                <a href="{% url 'photo:post_detail' post.id %}" class="btn btn-xs btn-success">게시글 보기</a>
+            </p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+{% endfor %}
+
+{% endblock %}

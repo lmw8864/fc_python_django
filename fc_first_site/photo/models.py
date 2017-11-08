@@ -8,6 +8,8 @@ from django.core.files.base import ContentFile
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
+from tagging.fields import TagField
+
 
 class Photo(models.Model):
     author = models.ForeignKey(User, related_name='photo_posts')
@@ -16,6 +18,8 @@ class Photo(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     photo = models.ImageField(upload_to='photos/%Y/%m/%d', blank=False, default='NoImage.png')
+
+    tag = TagField()
 
     class Meta:
         ordering = ('-updated',)
