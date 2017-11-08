@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(mbtbw8w2+awfz3()rr_n!8_9m+2%#conct$2tabk1t+4f5ha$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'photo',
     'accounts',
     'tagging.apps.TaggingConfig',
+    'disqus',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 LOGIN_REDIRECT_URL = '/'
+
+# Comments
+# https://django-disqus.readthedocs.io/en/latest/
+# (http://latedreamer.blogspot.kr/2017/01/blog-django-disqus.html)
+
+DISQUS_WEBSITE_SHORTNAME = 'fc-first-site-dstagram'
+SITE_ID = 1  # 임의의 숫자 기입
+# python manage.py makemigrations / migrate
