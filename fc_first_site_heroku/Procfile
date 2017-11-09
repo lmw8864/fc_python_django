@@ -1,0 +1,1 @@
+web: gunicorn fc_first_site_heroku.wsgi
