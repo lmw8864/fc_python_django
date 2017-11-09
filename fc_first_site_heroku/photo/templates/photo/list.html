@@ -1,0 +1,22 @@
+{% extends 'photo_base.html' %}
+
+{% block title %} - Photo List{% endblock %}
+
+{% block content %}
+    <p><a href="{% url 'photo:tag_list' %}">Tags</a></p>
+
+    {% for post in posts %}
+        <ul style="margin-bottom:30px;">
+            <li>작성자: {{ post.author.username }}</li>
+            <li>작성 일시: {{ post.created }} (※ 수정: {{ post.updated }})</li>
+            <li>
+                내용:<br/>
+                <a href="{% url 'photo:post_detail' post.id %}">
+                    <img src="{{ post.photo.url }}" style="max-width:300px;"></a><br/>
+                {{ post.text }}
+            </li>
+            <li><a href="{% url 'photo:post_detail' post.id %}">게시글 보기</a></li>
+        </ul>
+    {% endfor %}
+
+{% endblock %}

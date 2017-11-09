@@ -1,0 +1,8 @@
+{% extends 'photo_base.html' %}
+
+{% block title %} - Register Done{% endblock %}
+
+{% block content %}
+<div class="alert alert-info" role="alert">Registration Success. Welcome, {{ new_user.username }} !</div>
+<a href="/" class="btn btn-default btn-info" role="button">Move to main</a>
+{% endblock %}
