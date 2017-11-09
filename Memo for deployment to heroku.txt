@@ -37,11 +37,15 @@ django-disqus
 6. $ pip freeze > requirements.txt
 
 
-7. 프로젝트 파일 옮기기 (앱 폴더, 템플릿 및 기타 소스코드 파일)
-- 메인 페이지(index.html) 구현을 위해 직접 추가했던 views.py 도 빼먹지 말 것!
+7. 프로젝트 파일 옮기기
+- 앱폴더, 템플릿, static 파일(css, img)
+- 메인 페이지(index.html) 구현을 위해 직접 생성했던 views.py
+- 기타 필요한 파일 추가
 
 
 8. settings.py 및 urls.py 수정
+# Django settings for Static assets
+https://devcenter.heroku.com/articles/django-assets
 
 
 9. git setting
