@@ -39,6 +39,12 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'bookmark',
+    'photo',
+    'accounts',
+    'tagging.apps.TaggingConfig',
+    'disqus',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +63,7 @@ ROOT_URLCONF = 'fc_first_site_heroku.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,3 +137,17 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+LOGIN_REDIRECT_URL = '/'
+
+# Comments
+# https://django-disqus.readthedocs.io/en/latest/
+# (http://latedreamer.blogspot.kr/2017/01/blog-django-disqus.html)
+
+DISQUS_WEBSITE_SHORTNAME = 'fc-first-site-dstagram'
+SITE_ID = 1  # 임의의 숫자 기입
+# python manage.py makemigrations / migrate
