@@ -87,3 +87,6 @@ $ git push heroku master
 
 # 서버 프로세스 체크
 $ heroku ps
+
+# 앱을 로컬에서 실행
+$ heroku local
