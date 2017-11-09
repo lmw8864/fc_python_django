@@ -1,0 +1,88 @@
+1 Heroku 툴킷(CLI) 설치
+https://devcenter.heroku.com/articles/heroku-cli#macos-installer
+
+
+2. 템플릿 다운받기
+https://github.com/heroku/heroku-django-template
+
+
+3. Herocu 배포용 프로젝트 생성:
+$ django-admin startproject --template=[file_name] --name=Procfile mysite .
+
+(또는)
+$ django-admin startproject --template=https://github.com/heroku/heroku-django-template/archive/master.zip --name=Procfile [project_name]
+
+
+4. 가상환경 활성화
+$ conda create -n [envname] python=3
+$ conda info --envs
+$ source activate [envname]
+
+
+5. $ pip install
+
+# for Heroku
+dj-database-url
+django
+gunicorn
+whitenoise
+psycopg2
+
+# for my project
+pillow
+django-tagging
+django-disqus
+
+
+6. $ pip freeze > requirements.txt
+
+
+7. 프로젝트 파일 옮기기 (앱 폴더, 템플릿 등)
+
+
+8. settings.py 수정
+
+
+9. git setting
+
+.gitignore
+
+$ git init
+$ git add -A
+$ git commit -m "Ready for deployment to heroku."
+$ heroku create [app_name]
+$ git push heroku master
+
+
+10. Heroku 데이터베이스 설정
+$ heroku run python manage.py migrate
+
+
+11. Heroku 슈퍼유저 생성
+$ heroku run python manage.py createsuperuser
+
+
+(또는)
+$ heroku run bash
+이후, $ python manage.py ... 입력
+
+
+11. 브라우저에 띄우기
+$ heroku open
+
+
+12. 서버 작업 마무리(for 보안)
+
+# settings.py 수정
+DEBUG = False
+ALLOWED_HOSTS = ['fc-first-site.herokuapp.com']
+
+# 바뀐 부분 커밋, 푸시
+$ git commit -am "Set DEBUG=False for Heroku."
+$ git push heroku master
+
+
+13. 기타 명령어
+
+# 서버 프로세스 체크
+$ heroku ps
